@@ -1,44 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-
+import { RestaurantService } from './restaurant.service'
 @Component({
   selector: 'app-restaurants',
   templateUrl: './restaurants.component.html',
-  styleUrls: ['./restaurants.component.css']
+  styleUrls: ['./restaurants.component.css'],
+  providers: [RestaurantService]
 })
 export class RestaurantsComponent implements OnInit {
   restaurants = [];
+  restaurant = {};
+  RestaurantService:RestaurantService;
 
-  constructor() {
-      this.restaurants =[
-        {
-          id: '1',
-          name: 'MacDonalds',
-          address: 'Direccion 1'
-        },
-        {
-          id: '2',
-          name: 'Carls Jr',
-          address: 'Direccion 2'
-        },
-        {
-          id: '3',
-          name: 'In & Out ',
-          address: 'Direccion 3'
-        },
-        {
-          id: '3',
-          name: 'Wendys ',
-          address: 'Direccion 4'
-        },
-        {
-          id: '4',
-          name: 'Las huerfanas ',
-          address: 'Direccion 5'
-        }
-      ]
-   }
+  constructor(RestaurantService: RestaurantService) {
+      this.RestaurantService = RestaurantService;    
+  }
 
   ngOnInit() {
+    this.restaurants = this.RestaurantService.get();
+  }
+
+  create(){
+    this.RestaurantService.save( this.restaurant); 
+    this.restaurants = this.RestaurantService.get();
+
+    this.restaurant = {};
   }
 
 }
