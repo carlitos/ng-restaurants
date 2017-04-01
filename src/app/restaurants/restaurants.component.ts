@@ -11,6 +11,8 @@ export class RestaurantsComponent implements OnInit {
   RestaurantService:RestaurantService;
   restaurant = {};
 
+  isLoading = false;
+
   constructor(RestaurantService: RestaurantService) {
       this.RestaurantService = RestaurantService;    
   }
@@ -20,8 +22,12 @@ export class RestaurantsComponent implements OnInit {
   }
 
   get(){
+    this.isLoading = true;
     this.RestaurantService.get()
-    .then(response => this.restaurants = response )
+    .then(response => { 
+      this.restaurants = response;
+      this.isLoading = false;
+     })
     .catch(function (error){
       console.log('Failed', error);
     });

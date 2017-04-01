@@ -1,5 +1,5 @@
 <h2>List of Restaurants!</h2>
-
+<p *ngIf="isLoading">Cargando ...</p>
 <ul>
   <li class="card" *ngFor="let restaurant of restaurants">
      <h3>{{restaurant.name}} </h3>

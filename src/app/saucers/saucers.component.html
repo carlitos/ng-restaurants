@@ -1,3 +1,11 @@
-<p>
-  saucers works! {{restaurant.name}}
-</p>
+<h2> {{restaurant.name}} > Saucers </h2>
+<a routerLink="/">Back to restaurants</a>
+
+<ul>
+  <li class="card" *ngFor="let saucer of saucers">
+      <h4>{{saucer.name}}</h4>
+      <p>{{saucer.description}}</p>
+      <span>$ {{saucer.price}}</span>
+      <a href="#">View comments</a>
+  </li>
+</ul>
