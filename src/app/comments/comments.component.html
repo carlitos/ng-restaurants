@@ -1,0 +1,23 @@
+<h2>Comments for {{saucer.name }} ></h2>
+<a routerLink="/restaurants/{{ saucer.restaurantId }}/saucers">Back to {{ saucer.name}}</a>
+
+<div class="newComment">
+  <h3>New Comment</h3>
+  <form (ngSubmit)="sendComment($event)">
+     <label for="author">Name: </label>
+     <input type="text" name="author" [(ngModel)]="data.createdBy">
+
+     <label for="commment"></label>
+     <textarea type="text" name="comment" [(ngModel)]="data.comment"></textarea>
+     <button>Send</button>
+  </form>
+</div>
+
+<hr>
+<ul>
+  <li class="card" *ngFor="let comment of comments">
+    <h4> {{comment.createdBy}}</h4>
+    <p>{{ comment.comment }}</p>
+    <span>$ {{comment.date }}</span>
+  </li>
+</ul>

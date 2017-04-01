@@ -8,12 +8,14 @@ import {routing} from './app.routing';
 
 import { RestaurantsComponent } from './restaurants/restaurants.component';
 import { SaucersComponent } from './saucers/saucers.component';
+import { CommentsComponent } from './comments/comments.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RestaurantsComponent,
-    SaucersComponent
+    SaucersComponent,
+    CommentsComponent
   ],
   imports: [
     BrowserModule,
