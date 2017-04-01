@@ -1,44 +1,32 @@
 import { Injectable } from '@angular/core';
+import { Headers, Http, Response } from '@angular/http';
+import 'rxjs/Rx';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class RestaurantService {
   
-  restaurants =[
-        {
-          id: '1',
-          name: 'La Matera ',
-          address: 'Av. Vallarta'
-        },
-        {
-          id: '2',
-          name: 'Carls Jr',
-          address: 'Direccion 2'
-        },
-        {
-          id: '3',
-          name: 'In & Out ',
-          address: 'Direccion 3'
-        },
-        {
-          id: '3',
-          name: 'Wendys ',
-          address: 'Direccion 4'
-        },
-        {
-          id: '4',
-          name: 'Las huerfanas ',
-          address: 'Direccion 5'
-        }
-      ];
+  constructor( private http: Http ) {    }
+  
+  private apiURL = environment.API_URL + 'restaurants/';
 
-  constructor() {   }
   get(){
-    return this.restaurants.slice();
+    return this.http.get(this.apiURL)
+    .map(( response: Response) => response.json())
+    .toPromise();
   }
 
+  getRestaurant(id: string){
+    return this.http.get(this.apiURL + id)
+    .map((response: Response) => response.json())
+    .toPromise();
+  }
+  
+
+
+
   save(restaurant){
-    var copy = Object.assign({}, restaurant);
-    this.restaurants.push(copy);
+
   }
   
 

@@ -4,7 +4,7 @@
   <li class="card" *ngFor="let restaurant of restaurants">
      <h3>{{restaurant.name}} </h3>
      <p>{{restaurant.address}}</p>
-    <a href="#">View more</a>
+    <a routerLink="restaurants/{{restaurant.id}}">View more</a>
   </li>
 </ul>
 

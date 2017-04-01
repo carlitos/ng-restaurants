@@ -8,22 +8,26 @@ import { RestaurantService } from './restaurant.service'
 })
 export class RestaurantsComponent implements OnInit {
   restaurants = [];
-  restaurant = {};
   RestaurantService:RestaurantService;
+  restaurant = {};
 
   constructor(RestaurantService: RestaurantService) {
       this.RestaurantService = RestaurantService;    
   }
 
   ngOnInit() {
-    this.restaurants = this.RestaurantService.get();
+    this.get();
+  }
+
+  get(){
+    this.RestaurantService.get()
+    .then(response => this.restaurants = response )
+    .catch(function (error){
+      console.log('Failed', error);
+    });
   }
 
   create(){
-    this.RestaurantService.save( this.restaurant); 
-    this.restaurants = this.RestaurantService.get();
-
-    this.restaurant = {};
   }
 
 }
