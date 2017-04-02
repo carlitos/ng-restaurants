@@ -4,13 +4,6 @@
   <li class="card" *ngFor="let restaurant of restaurants">
      <h3>{{restaurant.name}} </h3>
      <p>{{restaurant.address}}</p>
-    <a routerLink="restaurants/{{restaurant.id}}">View more</a>
+    <a routerLink="restaurants/{{restaurant.id}}" class="btn btn-primary">View more</a>
   </li>
 </ul>
-
-
-<form (ngSubmit)="create()">
-  <input type="text" name="name" [(ngModel)]="restaurant.name">
-  <input type="text" name="address" [(ngModel)]="restaurant.address">
-  <button >Save</button>
-</form>

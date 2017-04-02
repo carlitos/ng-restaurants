@@ -1,11 +1,24 @@
-<h2> {{restaurant.name}} > Saucers </h2>
-<a routerLink="/">Back to restaurants</a>
 
-<ul>
-  <li class="card" *ngFor="let saucer of saucers">
-      <h4>{{saucer.name}}</h4>
-      <p>{{saucer.description}}</p>
-      <span>$ {{saucer.price}}</span>
-      <a routerLink="/saucers/{{saucer.id}}/comments">View comments</a>
-  </li>
-</ul>
+<ol class="breadcrumb">
+  <li><a routerLink="/">Home </a></li>
+  <li class="active">{{restaurant.name}}</li>
+</ol>
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nombre del Platillo</th>
+        <th>Descripcíon</th>
+        <th>Precio</th>
+        <th>Acción</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let saucer of saucers">
+          <td>{{saucer.name}}</td>
+          <td>{{saucer.description}}</td>
+          <td>$ {{saucer.price}}</td>
+          <td> <a routerLink="/saucers/{{saucer.id}}/comments" class="btn btn-primary btn-xs">View comments</a> </td>
+        </tr>
+    </tbody>
+</table>

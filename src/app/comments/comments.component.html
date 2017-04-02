@@ -14,10 +14,4 @@
 </div>
 
 <hr>
-<ul>
-  <li class="card" *ngFor="let comment of comments">
-    <h4> {{comment.createdBy}}</h4>
-    <p>{{ comment.comment }}</p>
-    <span>$ {{comment.date }}</span>
-  </li>
-</ul>
+<ng2-smart-table [settings]="settings" [source]="comments"></ng2-smart-table>
