@@ -9,6 +9,7 @@ import {routing} from './app.routing';
 import { RestaurantsComponent } from './restaurants/restaurants.component';
 import { SaucersComponent } from './saucers/saucers.component';
 import { CommentsComponent } from './comments/comments.component';
+import { Ng2SmartTableModule } from 'ng2-smart-table';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { CommentsComponent } from './comments/comments.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    routing
+    routing,
+    Ng2SmartTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
